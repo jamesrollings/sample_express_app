@@ -1,11 +1,13 @@
 FROM node:16
 
-COPY . /app/src
+WORKDIR /app
 
-RUN yarn install
+COPY ["package.json", "./"]
+
+RUN yarn
 
 COPY . .
 
-EXPOSE 8080
+#EXPOSE 8080
 
 CMD ["node", "app.js"]
